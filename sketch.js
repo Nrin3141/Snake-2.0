@@ -46,10 +46,10 @@ function loadGame(gameOver){
 
 
 function canvasResize(){
-  canvas.height = window.innerHeight*0.9-(window.innerHeight*0.9)%10;
+  canvas.height = window.innerHeight*0.85-(window.innerHeight*0.85)%10;
   scl = canvas.height/10;
   let v = 0;
-  while (scl*v < window.innerWidth*0.85){
+  while (scl*v < window.innerWidth*0.9){
     v++;
   }
   canvas.width = scl*v;
@@ -459,10 +459,11 @@ var LeftButton = document.createElement('BUTTON');
 var RightButton = document.createElement('BUTTON');
 var UpButton = document.createElement('BUTTON');
 var DownButton = document.createElement('BUTTON');
-document.body.appendChild(LeftButton);
-document.body.appendChild(RightButton);
-document.body.appendChild(UpButton);
-document.body.appendChild(DownButton);
+var container = document.getElementById('buttonContainer');
+container.appendChild(LeftButton);
+container.appendChild(RightButton);
+container.appendChild(UpButton);
+container.appendChild(DownButton);
 LeftButton.innerHTML = 'A';
 RightButton.innerHTML = 'D';
 UpButton.innerHTML = 'W';
@@ -472,6 +473,11 @@ LeftButton.className = 'moveButtons';
 RightButton.className = 'moveButtons';
 UpButton.className = 'moveButtons';
 DownButton.className = 'moveButtons';
+
+LeftButton.id = 'leftButton';
+RightButton.id = 'rightButton';
+UpButton.id = 'UpButton';
+DownButton.id = 'DownButton';
 
 LeftButton.addEventListener('click', function(){
   snakeControls('a');

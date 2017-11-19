@@ -1,28 +1,65 @@
 #resumeButton {
+  font-size: 2vw;
   background-color: rgb(250,200,0);
   border:none;
-  padding: 30px;
+  padding: 2vw;
   position: absolute;
-  top: 40%;
-  left: 40%;
+  top: 40vh;
+  left: 45vw;
   z-index: 1;
 }
 body {
   background-color: rgb(50,90,120);
 }
 #container {
-  float: left;
+  display: flex;
+  align-items: center;
 }
 #canvas {
+  margin: auto;
   background-color: rgb(90,120,150);
 }
 #scoreBoard {
+  font-size: 2vw;
   border:none;
-  padding: 30px;
+  padding: 1vw;
   position: absolute;
-  top: -3%;
-  right: 15%;
+  top: -2vh;
+  right: 5vw;
+}
+#container2 {
+  display: flex;
+  align-items: center;
+}
+#buttonContainer {
+  margin:auto;
+  padding:auto;
+  display: flex;
+  align-items: center;
 }
 .moveButtons {
-  font-size: 95%;
+  font-size: 2vw;
+  margin:0.5em 0.1em;
+  border-radius: 0.5em;
+}
+
+#leftButton {
+  position: absolute;
+  bottom: 0;
+  left: 46vw;
+}
+#rightButton {
+  position: absolute;
+  bottom: 0;
+  left: 52.3vw;
+}
+#UpButton {
+  position: absolute;
+  bottom: 6vh;
+  left: 49vw;
+}
+#DownButton {
+  position: absolute;
+  bottom: 0;
+  left: 49.3vw;
 }
