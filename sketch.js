@@ -552,7 +552,7 @@ function toggleFullscreen(ele) {
   }
 }
 
-if (!is_touch_device()){
+if (is_touch_device()){
     toggleFullscreenButton = document.createElement('BUTTON');
     document.getElementById('container2').appendChild(toggleFullscreenButton);
     toggleFullscreenButton.innerHTML = 'Press to enter fullscreenmode';
