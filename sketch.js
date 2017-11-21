@@ -551,11 +551,10 @@ function toggleFullscreen(ele) {
     }
   }
 }
-
-if (is_touch_device()){
-    document.getElementById('container2').appendChild(toggleFullscreenButton);
-}
 toggleFullscreenButton = document.createElement('BUTTON');
 toggleFullscreenButton.innerHTML = 'Press to enter fullscreenmode';
 toggleFullscreenButton.id = 'fullScreenButton';
 toggleFullscreenButton.addEventListener('pointerdown', function(){toggleFullscreen(document.documentElement)});
+if (is_touch_device()){
+    document.getElementById('container2').appendChild(toggleFullscreenButton);
+}
