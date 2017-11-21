@@ -1,4 +1,4 @@
-var canvas = document.getElementById("canvas");
+var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 var scl;
 var posX;
@@ -136,16 +136,16 @@ function draw(){
 
   //using current velocity to give every snake segment a direction
   if(velX === -scl){
-    direction = "left";
+    direction = 'left';
   }
   if(velY === -scl){
-    direction = "up";
+    direction = 'up';
   }
   if(velX === scl){
-    direction = "right"
+    direction = 'right'
   }
   if(velY === scl){
-    direction = "down";
+    direction = 'down';
   }
 
   //snakeBody generation
@@ -526,16 +526,36 @@ function is_touch_device() {
       || (navigator.msMaxTouchPoints > 0));
 }
 
-function enterFullscreen(element) {
-  if(element.requestFullscreen) {
-    element.requestFullscreen();
-  } else if(element.mozRequestFullScreen) {
-    element.mozRequestFullScreen();
-  } else if(element.msRequestFullscreen) {
-    element.msRequestFullscreen();
-  } else if(element.webkitRequestFullscreen) {
-    element.webkitRequestFullscreen();
+function toggleFullscreen(ele) {
+  if (!document.fullscreenElement && !document.webkitFullscreenElement &&	!document.mozFullScreenElement && !document.msFullscreenElement){
+    toggleFullscreenButton.innerHTML = 'Press to exit fullscreenmode';
+    if(ele.requestFullscreen) {
+      ele.requestFullscreen();
+    } else if(ele.mozRequestFullScreen) {
+      ele.mozRequestFullScreen();
+    } else if(ele.msRequestFullscreen) {
+      ele.msRequestFullscreen();
+    } else if(ele.webkitRequestFullscreen) {
+      ele.webkitRequestFullscreen();
+    }
+  }
+  else {
+    toggleFullscreenButton.innerHTML = 'Press to enter fullscreenmode';
+    if(document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if(document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if(document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
   }
 }
 
-document.addEventListener("pointerdown", function(){enterFullscreen(document.documentElement)});
+
+if (is_touch_device()){
+  let toggleFullscreenButton = document.createElement('BUTTON');
+    document.getElementById('container2').appendChild(toggleFullscreenButton);
+    toggleFullscreenButton.innerHTML = 'Press to enter fullscreenmode';
+    toggleFullscreenButton.id = 'fullScreenButton';
+    toggleFullscreenButton.addEventListener('pointerdown', function(){toggleFullscreen(document.documentElement)});
+}

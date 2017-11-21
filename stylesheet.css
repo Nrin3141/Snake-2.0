@@ -17,6 +17,11 @@ html {
   align-items: center;
   justify-content: center;
 }
+#container2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 #scoreBoard {
   font-size: 2vw;
   border:none;
@@ -29,6 +34,15 @@ html {
 .moveButtons {
   font-size: 15vw;
   color: rgba(50, 50, 50, 0.2);
+  background-color: rgba(200, 200, 200, 0.2);
+  border: none;
+  border-radius: 0.3em;
+}
+
+#fullScreenButton {
+  font-size: 1vw;
+  color: rgba(0,0,0, 10);
+  padding: 1vw;
   background-color: rgba(200, 200, 200, 0.2);
   border: none;
   border-radius: 0.3em;
