@@ -12,6 +12,7 @@ var ResumeButton = document.createElement('BUTTON');
 var scoreboard = document.createElement('p');
 var counter;
 var snakeArray;
+var toggleFullscreenButton;
 let direction = 'down';
 let buttonSeal = 'false';
 scoreboard.id = 'scoreBoard';
@@ -551,9 +552,8 @@ function toggleFullscreen(ele) {
   }
 }
 
-
-if (is_touch_device()){
-  let toggleFullscreenButton = document.createElement('BUTTON');
+if (!is_touch_device()){
+    toggleFullscreenButton = document.createElement('BUTTON');
     document.getElementById('container2').appendChild(toggleFullscreenButton);
     toggleFullscreenButton.innerHTML = 'Press to enter fullscreenmode';
     toggleFullscreenButton.id = 'fullScreenButton';
