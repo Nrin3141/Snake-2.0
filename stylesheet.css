@@ -49,25 +49,25 @@ html {
 }
 
 #leftButton {
-  position: fixed;
+  position: absolute;
   padding: 0.1em 0.3em;
   top: 28vh;
   left: 3.6vw;
 }
 #rightButton {
-  position: fixed;
+  position: absolute;
   padding: 0.1em 0.3em;
   top: 28vh;
   right: 3.6vw;
 }
 #UpButton {
-  position: fixed;
+  position: absolute;
   padding: 0em 0.3em;
   top: 4vh;
   left: 37.6vw;
 }
 #DownButton {
-  position: fixed;
+  position: absolute;
   padding: 0em 0.3em;
   bottom: 6.3vh;
   left: 39.6vw;
