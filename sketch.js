@@ -452,6 +452,12 @@ function stopGame(gameOver){
       break;
     }
     document.body.removeChild(ResumeButton);
+    if (is_touch_device()){
+      document.body.appendChild(LeftButton);
+      document.body.appendChild(RightButton);
+      document.body.appendChild(DownButton);
+      document.body.appendChild(UpButton);
+    }
     gameState = 'running';
 }
   else {
@@ -459,6 +465,12 @@ function stopGame(gameOver){
     savedPosY = posY;
     velX = 0;
     velY = 0;
+    if (is_touch_device()){
+      document.body.removeChild(LeftButton);
+      document.body.removeChild(RightButton);
+      document.body.removeChild(DownButton);
+      document.body.removeChild(UpButton);
+    }
     document.body.appendChild(ResumeButton);
     gameState = 'stopped';
   }
@@ -474,11 +486,10 @@ if (is_touch_device()){
   var RightButton = document.createElement('BUTTON');
   var UpButton = document.createElement('BUTTON');
   var DownButton = document.createElement('BUTTON');
-  var container = document.getElementById('buttonContainer');
-  container.appendChild(LeftButton);
-  container.appendChild(RightButton);
-  container.appendChild(UpButton);
-  container.appendChild(DownButton);
+  document.body.appendChild(LeftButton);
+  document.body.appendChild(RightButton);
+  document.body.appendChild(UpButton);
+  document.body.appendChild(DownButton);
   LeftButton.innerHTML = 'A';
   RightButton.innerHTML = 'D';
   UpButton.innerHTML = 'W';
@@ -493,21 +504,6 @@ if (is_touch_device()){
   RightButton.id = 'rightButton';
   UpButton.id = 'UpButton';
   DownButton.id = 'DownButton';
-
-  /*
-  LeftButton.addEventListener('click', function(){
-    snakeControls('a');
-  });
-  RightButton.addEventListener('click', function(){
-    snakeControls('d');
-  });
-  UpButton.addEventListener('click', function(){
-    snakeControls('w');
-  });
-  DownButton.addEventListener('click', function(){
-    snakeControls('s');
-  });
-  */
 
   LeftButton.addEventListener('pointerdown', function(){
     snakeControls('a');
