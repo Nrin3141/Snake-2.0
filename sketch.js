@@ -46,13 +46,27 @@ function loadGame(gameOver){
 
 
 function canvasResize(){
-  canvas.height = window.innerHeight*0.85-(window.innerHeight*0.85)%10;
-  scl = canvas.height/10;
-  let v = 0;
-  while (scl*v < window.innerWidth*0.9){
-    v++;
+
+  if (window.innerHeight <= window.innerWidth){
+    canvas.height = window.innerHeight*0.9-(window.innerHeight*0.9)%10;
+    scl = canvas.height/10;
+    let v = 0;
+    while (scl*v < window.innerWidth*0.9){
+      v++;
+      canvas.width = scl*v;
   }
-  canvas.width = scl*v;
+}
+  else {
+    canvas.width = window.innerWidth*0.9-(window.innerWidth*0.9)%10;
+    scl = canvas.width/10;
+    let v = 0;
+    while (scl*v < window.innerHeight*0.9){
+      v++;
+      canvas.height = scl*v;
+  }
+
+  }
+
   generateNewApple();
 }
 
@@ -455,51 +469,63 @@ function stopGame(gameOver){
 
 
 //adding all the buttons and event Listeners to the DOM
-var LeftButton = document.createElement('BUTTON');
-var RightButton = document.createElement('BUTTON');
-var UpButton = document.createElement('BUTTON');
-var DownButton = document.createElement('BUTTON');
-var container = document.getElementById('buttonContainer');
-container.appendChild(LeftButton);
-container.appendChild(RightButton);
-container.appendChild(UpButton);
-container.appendChild(DownButton);
-LeftButton.innerHTML = 'A';
-RightButton.innerHTML = 'D';
-UpButton.innerHTML = 'W';
-DownButton.innerHTML = 'S';
+if (is_touch_device()){
+  var LeftButton = document.createElement('BUTTON');
+  var RightButton = document.createElement('BUTTON');
+  var UpButton = document.createElement('BUTTON');
+  var DownButton = document.createElement('BUTTON');
+  var container = document.getElementById('buttonContainer');
+  container.appendChild(LeftButton);
+  container.appendChild(RightButton);
+  container.appendChild(UpButton);
+  container.appendChild(DownButton);
+  LeftButton.innerHTML = 'A';
+  RightButton.innerHTML = 'D';
+  UpButton.innerHTML = 'W';
+  DownButton.innerHTML = 'S';
 
-LeftButton.className = 'moveButtons';
-RightButton.className = 'moveButtons';
-UpButton.className = 'moveButtons';
-DownButton.className = 'moveButtons';
+  LeftButton.className = 'moveButtons';
+  RightButton.className = 'moveButtons';
+  UpButton.className = 'moveButtons';
+  DownButton.className = 'moveButtons';
 
-LeftButton.id = 'leftButton';
-RightButton.id = 'rightButton';
-UpButton.id = 'UpButton';
-DownButton.id = 'DownButton';
+  LeftButton.id = 'leftButton';
+  RightButton.id = 'rightButton';
+  UpButton.id = 'UpButton';
+  DownButton.id = 'DownButton';
 
-LeftButton.addEventListener('click', function(){
-  snakeControls('a');
-});
-RightButton.addEventListener('click', function(){
-  snakeControls('d');
-});
-UpButton.addEventListener('click', function(){
-  snakeControls('w');
-});
-DownButton.addEventListener('click', function(){
-  snakeControls('s');
-});
-LeftButton.addEventListener('pointerdown', function(){
-  snakeControls('a');
-});
-RightButton.addEventListener('pointerdown', function(){
-  snakeControls('d');
-});
-UpButton.addEventListener('pointerdown', function(){
-  snakeControls('w');
-});
-DownButton.addEventListener('pointerdown', function(){
-  snakeControls('s');
-});
+  /*
+  LeftButton.addEventListener('click', function(){
+    snakeControls('a');
+  });
+  RightButton.addEventListener('click', function(){
+    snakeControls('d');
+  });
+  UpButton.addEventListener('click', function(){
+    snakeControls('w');
+  });
+  DownButton.addEventListener('click', function(){
+    snakeControls('s');
+  });
+  */
+
+  LeftButton.addEventListener('pointerdown', function(){
+    snakeControls('a');
+  });
+  RightButton.addEventListener('pointerdown', function(){
+    snakeControls('d');
+  });
+  UpButton.addEventListener('pointerdown', function(){
+    snakeControls('w');
+  });
+  DownButton.addEventListener('pointerdown', function(){
+    snakeControls('s');
+  });
+}
+
+
+function is_touch_device() {
+ return (('ontouchstart' in window)
+      || (navigator.MaxTouchPoints > 0)
+      || (navigator.msMaxTouchPoints > 0));
+}

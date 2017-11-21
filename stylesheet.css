@@ -44,22 +44,22 @@ body {
 }
 
 #leftButton {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 46vw;
 }
 #rightButton {
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  left: 52.3vw;
+  left: 52.5vw;
 }
 #UpButton {
-  position: absolute;
+  position: fixed;
   bottom: 6vh;
   left: 49vw;
 }
 #DownButton {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 49.3vw;
 }
