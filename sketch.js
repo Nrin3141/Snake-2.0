@@ -527,7 +527,7 @@ function is_touch_device() {
       || (navigator.msMaxTouchPoints > 0));
 }
 
-function toggleFullscreen(ele) {
+/*function toggleFullscreen(ele) {
     if(ele.requestFullscreen) {
       ele.requestFullscreen();
     } else if(ele.mozRequestFullScreen) {
@@ -537,9 +537,25 @@ function toggleFullscreen(ele) {
     } else if(ele.webkitRequestFullscreen) {
       ele.webkitRequestFullscreen();
     }
+}*/
+function toggleFullScreen() {
+  var doc = window.document;
+  var docEl = doc.documentElement;
+
+  var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+  var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+  if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+    requestFullScreen.call(docEl);
+  }
+  else {
+    cancelFullScreen.call(doc);
+  }
 }
 toggleFullscreenButton = document.createElement('BUTTON');
 toggleFullscreenButton.innerHTML = 'Go Fullscreen!';
 toggleFullscreenButton.id = 'fullScreenButton';
 document.getElementById('container2').appendChild(toggleFullscreenButton);
-toggleFullscreenButton.addEventListener('pointerdown', function(){toggleFullscreen(document.documentElement);});
+toggleFullscreenButton.addEventListener('pointerdown', function(){
+  toggleFullScreen(document.documentElement);
+});
