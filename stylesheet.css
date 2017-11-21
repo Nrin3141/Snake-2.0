@@ -9,7 +9,7 @@
   z-index: 1;
 }
 html {
-  background-color: rgb(50,90,120);
+  background-color: red; /*rgb(50,90,120);*/
 }
 #container {
   margin: 2vw;
