@@ -528,8 +528,6 @@ function is_touch_device() {
 }
 
 function toggleFullscreen(ele) {
-  if (!document.fullscreenElement && !document.webkitFullscreenElement &&	!document.mozFullScreenElement && !document.msFullscreenElement){
-    toggleFullscreenButton.innerHTML = 'Press to exit fullscreen-mode';
     if(ele.requestFullscreen) {
       ele.requestFullscreen();
     } else if(ele.mozRequestFullScreen) {
@@ -539,28 +537,9 @@ function toggleFullscreen(ele) {
     } else if(ele.webkitRequestFullscreen) {
       ele.webkitRequestFullscreen();
     }
-  }
-  else {
-    toggleFullscreenButton.innerHTML = 'Press to enter fullscreen-mode';
-    if(document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if(document.mozCancelFullScreen) {
-      document.mozCancelFullScreen();
-    } else if(document.webkitExitFullscreen) {
-      document.webkitExitFullscreen();
-    }
-  }
 }
 toggleFullscreenButton = document.createElement('BUTTON');
-toggleFullscreenButton.innerHTML = 'Press to enter fullscreen-mode';
+toggleFullscreenButton.innerHTML = 'Go Fullscreen!';
 toggleFullscreenButton.id = 'fullScreenButton';
 toggleFullscreenButton.addEventListener('pointerdown', function(){toggleFullscreen(document.documentElement)});
 document.getElementById('container2').appendChild(toggleFullscreenButton);
-
-function hideAddressBar(){
-  if(document.documentElement.scrollHeight<window.outerHeight/window.devicePixelRatio)
-    document.documentElement.style.height=(window.outerHeight/window.devicePixelRatio)+'px';
-  setTimeout(window.scrollTo(1,1),0);
-}
-window.addEventListener("load",function(){hideAddressBar();});
-window.addEventListener("orientationchange",function(){hideAddressBar();});
