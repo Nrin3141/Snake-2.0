@@ -529,7 +529,7 @@ function is_touch_device() {
 
 function toggleFullscreen(ele) {
   if (!document.fullscreenElement && !document.webkitFullscreenElement &&	!document.mozFullScreenElement && !document.msFullscreenElement){
-    toggleFullscreenButton.innerHTML = 'Press to exit fullscreenmode';
+    toggleFullscreenButton.innerHTML = 'Press to exit fullscreen-mode';
     if(ele.requestFullscreen) {
       ele.requestFullscreen();
     } else if(ele.mozRequestFullScreen) {
@@ -541,7 +541,7 @@ function toggleFullscreen(ele) {
     }
   }
   else {
-    toggleFullscreenButton.innerHTML = 'Press to enter fullscreenmode';
+    toggleFullscreenButton.innerHTML = 'Press to enter fullscreen-mode';
     if(document.exitFullscreen) {
       document.exitFullscreen();
     } else if(document.mozCancelFullScreen) {
@@ -552,9 +552,15 @@ function toggleFullscreen(ele) {
   }
 }
 toggleFullscreenButton = document.createElement('BUTTON');
-toggleFullscreenButton.innerHTML = 'Press to enter fullscreenmode';
+toggleFullscreenButton.innerHTML = 'Press to enter fullscreen-mode';
 toggleFullscreenButton.id = 'fullScreenButton';
 toggleFullscreenButton.addEventListener('pointerdown', function(){toggleFullscreen(document.documentElement)});
-if (is_touch_device()){
-    document.getElementById('container2').appendChild(toggleFullscreenButton);
+document.getElementById('container2').appendChild(toggleFullscreenButton);
+
+function hideAddressBar(){
+  if(document.documentElement.scrollHeight<window.outerHeight/window.devicePixelRatio)
+    document.documentElement.style.height=(window.outerHeight/window.devicePixelRatio)+'px';
+  setTimeout(window.scrollTo(1,1),0);
 }
+window.addEventListener("load",function(){hideAddressBar();});
+window.addEventListener("orientationchange",function(){hideAddressBar();});
