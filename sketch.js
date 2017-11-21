@@ -541,5 +541,5 @@ function toggleFullscreen(ele) {
 toggleFullscreenButton = document.createElement('BUTTON');
 toggleFullscreenButton.innerHTML = 'Go Fullscreen!';
 toggleFullscreenButton.id = 'fullScreenButton';
-toggleFullscreenButton.addEventListener('pointerdown', function(){toggleFullscreen(document.documentElement)});
 document.getElementById('container2').appendChild(toggleFullscreenButton);
+toggleFullscreenButton.addEventListener('pointerdown', function(){toggleFullscreen(document.documentElement);});
