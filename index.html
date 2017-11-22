@@ -1,17 +1,41 @@
+<header>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<title>Testing</title>
+</header>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <title>Snake</title>
-</head>
 <body>
-<div id='container'>
-  <canvas id='canvas'>
+<div class = 'bigContainer'>
+<div class = 'midcontainer'>
+<button class ='moveButtons' id='leftButton'>
+  A
+</button>
+</div>
+<div class = 'midcontainer' id='canvasContainer'>
+  <canvas id='TestCanvas'>
   </canvas>
+  <div id='resumeButtonContainer'>
+  </div>
+  <div id='toggleFSContainer'>
+  </div>
+  <div class = 'smallcontainer' id='scoreBoardTarget'>
+    <button class ='moveButtons' id='upButton'>
+  W
+</button>
 </div>
-<div id='container2'>
+  <div class = 'smallcontainer'>
+    <button class ='moveButtons' id='downButton'>
+  S
+</button>
 </div>
-  <script src="sketch.js">
-  </script>
+</div>
+<div class = 'midcontainer'>
+  <button class ='moveButtons' id='rightButton'>
+  D
+</button>
+</div>
+</div>
+<script src="script.js">
+</script>
 </body>
 </html>
