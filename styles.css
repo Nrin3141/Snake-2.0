@@ -54,7 +54,7 @@ button:focus {outline:0;}
   border:none;
   width: 50vw;
   height: 20vh;
-  z-index:3;
+  z-index:5;
 }
 
 #leftButton {
