@@ -1,0 +1,132 @@
+.bigContainer {
+  display: flex;
+  justify-content: center;
+  border:black;
+  width: 97vw;
+  height: 90vh;
+  margin: 5vh 1.5vw;
+}
+.midcontainer {
+  width:auto;
+  height:auto;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.smallcontainer {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+#canvasContainer {
+  background-color: rgb(50,90,120);
+  width:97vw;
+  height:90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+#TestCanvas{
+  position:absolute;
+  background-color: rgb(50,90,120);
+  width:81vw;
+  height:90vh;
+  z-index: 0;
+}
+
+html {
+  background-color: rgb(50,90,120);
+}
+button {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+button:focus {outline:0;}
+.moveButtons {
+  font-size: 5vw;
+  background-color: rgba(200, 200, 200, 0.5);
+  padding: 1vw 0.2vw;
+  border:none;
+  width: 50vw;
+  height: 20vh;
+  z-index:3;
+}
+
+#leftButton {
+  position: relative;
+  left:8vw;
+  width: 8vw;
+  height: 50vh;
+  border-radius: 0 15em 15em 0;
+}
+#rightButton {
+  position: relative;
+  right:8vw;
+  width: 8vw;
+  height: 50vh;
+  border-radius: 15em 0 0 15em;
+}
+#downButton {
+  border-radius: 15em 15em 0 0;
+}
+#upButton {
+  border-radius: 0 0 15em 15em;
+}
+#scoreBoard {
+  font-size: 1.5vw;
+  position:absolute;
+  right:10vw;
+  top:4vh;
+}
+
+#resumeButtonContainer{
+  position:absolute;
+  width:81vw;
+  height:90vh;
+  z-index: 3;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#resumeButton {
+  font-size: 2vw;
+  background-color: rgb(250,200,0);
+  border:none;
+  height: 15vh;
+  width: 30vw;
+}
+
+#toggleFSContainer{
+  position:absolute;
+  width:81vw;
+  height:90vh;
+  z-index: 2;
+  display:flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+#fullScreenButton {
+  border:none;
+  background-color: rgba(200, 200, 200, 0.5);
+  width:10vw;
+  height:2vw;
+  position:relative;
+  bottom:-4vh;
+  font-size: 1vw;
+}
+.noselect {
+-webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome and Opera */
+}
